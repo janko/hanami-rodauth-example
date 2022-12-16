@@ -29,4 +29,9 @@ end
 
 group :test do
   gem "rack-test"
+  gem "database_cleaner-sequel"
 end
+
+gem "rom", "~> 5.3"
+gem "rom-sql", "~> 3.6"
+gem "pg", "~> 1.4"
