@@ -13,6 +13,7 @@ gem "rake"
 
 group :development, :test do
   gem "dotenv"
+  gem "warning", "~> 1.3"
 end
 
 group :cli, :development do
@@ -35,3 +36,10 @@ end
 gem "rom", "~> 5.3"
 gem "rom-sql", "~> 3.6"
 gem "pg", "~> 1.4"
+
+gem "rodauth", "~> 2.26"
+gem "bcrypt", "~> 3.1"
+gem "mail", "~> 2.8"
+gem "tilt", "~> 2.0"
+
+gem "alba", "~> 2.1"

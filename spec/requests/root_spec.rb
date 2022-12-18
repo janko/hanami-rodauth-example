@@ -1,11 +1,20 @@
 # frozen_string_literal: true
 
 RSpec.describe "Root", type: :request do
-  it "is successful" do
-    get "/"
+  it "returns the current account" do
+    logged_in(email: "user@example.com")
 
-    # Find me in `config/routes.rb`
+    get "/", {}, { "HTTP_ACCEPT" => "application/json" }
+
     expect(last_response).to be_successful
-    expect(last_response.body).to eq("Hello from Hanami")
+    expect(json_response["email"]).to eq "user@example.com"
+    expect(json_response["status"]).to eq "verified"
+  end
+
+  it "requires authentication" do
+    get "/", {}, { "HTTP_ACCEPT" => "application/json" }
+
+    expect(last_response.status).to eq 401
+    expect(json_response["error"]).to eq "Please login to continue"
   end
 end

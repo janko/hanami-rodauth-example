@@ -2,6 +2,6 @@
 
 module Blog
   class Routes < Hanami::Routes
-    root { "Hello from Hanami" }
+    root to: "home"
   end
 end
